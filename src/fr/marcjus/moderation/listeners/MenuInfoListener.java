@@ -34,14 +34,15 @@ public class MenuInfoListener implements Listener {
 		Inventory inv = e.getInventory();
 		Player player = (Player) e.getWhoClicked();
 		ItemStack it = e.getCurrentItem();
-		Material type = it.getType();
+		String owner = null;
+
 		if (inv != null) {
 			if (inv.getName().equals("§2Joueurs")) {
 				if (it != null && it.getType().equals(Material.SKULL_ITEM)) {
 					if (it.hasItemMeta()) {
 						e.setCancelled(true);
 						SkullMeta meta = (SkullMeta) it.getItemMeta();
-						String owner = meta.getOwner();
+						owner = meta.getOwner();
 						CreateCustomMenu menu = new CreateCustomMenu(27, owner);
 						menu.createMenuPlayerManager();
 						menu.openMenu(player);
@@ -50,46 +51,47 @@ public class MenuInfoListener implements Listener {
 				}
 			} else {
 
-				for (Player pl : Bukkit.getOnlinePlayers()) {
-					if (it != null) {
-						if (inv.getName().equals(pl.getName())) {
-							if (type.equals(Material.PACKED_ICE)) {
-								if (frezze) {
-									player.sendMessage("§aLe joueur est unfrezze !");
-									pl.sendMessage("§aVous pouvez bouger !");
-									frezze = false;
-								} else {
-									player.sendMessage("§aLe joueur est frezze !");
-									pl.sendMessage("§cVous ne pouvez plus bouger !");
-									frezze = true;
-								}
-							} else if (type.equals(Material.GLOWSTONE_DUST)) {
-								if (!glowing) {
-									glowing = true;
-									player.sendMessage("§aLe joueur est visible a travers les murs !");
-									pl.addPotionEffect(new PotionEffect(PotionEffectType.GLOWING, 99999, 3));
-								} else {
-									glowing = false;
-									pl.removePotionEffect(PotionEffectType.GLOWING);
-								}
-							} else if (type.equals(Material.CHEST)) {
-								player.closeInventory();
-								player.openInventory(pl.getInventory());
-							} else if (type.equals(Material.DIAMOND_CHESTPLATE)) {
-								if (!god) {
-									main.addGod(player);
-								} else {
-									main.removeGod(player);
-								}
-							} else if (type.equals(Material.ENDER_CHEST)) {
-								player.closeInventory();
-								player.openInventory(pl.getEnderChest());
-							}else if(type.equals(Material.ENDER_PEARL)){
-								player.sendMessage("Téléportation vers "+pl.getName());
-								player.closeInventory();
-								player.teleport(pl);
+				Player pl = Bukkit.getPlayer(owner);
+				if (it != null) {
+					Material type = it.getType();
+					if (inv.getName().equals(pl.getName())) {
+						if (type.equals(Material.PACKED_ICE)) {
+							if (frezze) {
+								player.sendMessage("§aLe joueur est unfrezze !");
+								pl.sendMessage("§aVous pouvez bouger !");
+								frezze = false;
+							} else {
+								player.sendMessage("§aLe joueur est frezze !");
+								pl.sendMessage("§cVous ne pouvez plus bouger !");
+								frezze = true;
 							}
+						} else if (type.equals(Material.GLOWSTONE_DUST)) {
+							if (!glowing) {
+								glowing = true;
+								player.sendMessage("§aLe joueur est visible a travers les murs !");
+								pl.addPotionEffect(new PotionEffect(PotionEffectType.GLOWING, 99999, 3));
+							} else {
+								glowing = false;
+								pl.removePotionEffect(PotionEffectType.GLOWING);
+							}
+						} else if (type.equals(Material.CHEST)) {
+							player.closeInventory();
+							player.openInventory(pl.getInventory());
+						} else if (type.equals(Material.DIAMOND_CHESTPLATE)) {
+							if (!god) {
+								main.addGod(player);
+							} else {
+								main.removeGod(player);
+							}
+						} else if (type.equals(Material.ENDER_CHEST)) {
+							player.closeInventory();
+							player.openInventory(pl.getEnderChest());
+						} else if (type.equals(Material.ENDER_PEARL)) {
+							player.sendMessage("Téléportation vers " + pl.getName());
+							player.closeInventory();
+							player.teleport(pl);
 						}
+
 					}
 
 				}

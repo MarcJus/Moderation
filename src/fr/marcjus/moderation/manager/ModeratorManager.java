@@ -12,6 +12,7 @@ public class ModeratorManager extends PlayerManager{
 	public ModeratorManager(Moderation main, Player player) {
 		super(main, player);
 		this.player = player;
+		super.setGod(true);
 	}
 	
 	public void setOneShot(boolean oneshot) {
