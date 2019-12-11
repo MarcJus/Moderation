@@ -1,0 +1,7 @@
+name: ModerationMarcJus
+version: 1.0
+author: MarcJus
+main: fr.marcjus.moderation.Moderation
+commands:
+  mod:
+    description: Permet de passer/sortit du mode moderateur
