@@ -34,20 +34,30 @@ public class CommandMod implements CommandExecutor {
 				if (main.getModos().contains(player)) {
 					main.removeModo(player);
 					player.sendMessage("§cVous n'etes plus en mode moderateur !");
-					ModeratorManager manager = new ModeratorManager(main, player);
+					ModeratorManager manager = main.getModosManager().get(player);
 					manager.setOneShot(false);
+					manager.setGod(false);
+					player.setPlayerListName(player.getName());
+					if (main.getModosManager().containsKey(player)) {
+						main.getModosManager().remove(player);
+					}
 					return false;
 				} else {
+					ModeratorManager manager = new ModeratorManager(main, player);
 					main.getModos().add(player);
-					main.addModo(player);
+					if (!main.getModosManager().containsKey(player)) {
+						main.getPlayersManager().put(player, manager);
+					}
 					player.sendMessage("§2Vous etes maintenant en mode moderateur !");
+					manager.setGod(true);
+					manager.setOneShot(true);
 					player.setPlayerListName("§a" + player.getName());
 					return true;
 				}
 
 			} else if (args.length >= 1) {
 				if (main.getModos().contains(player)) {
-					ModeratorManager manager = new ModeratorManager(main, player);
+					ModeratorManager manager = main.getModosManager().get(player);
 					if (args[0].equalsIgnoreCase("oneshot")) {
 						if (args.length >= 2) {
 							if (args[1].equalsIgnoreCase("on")) {
