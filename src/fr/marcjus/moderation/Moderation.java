@@ -1,6 +1,7 @@
 package fr.marcjus.moderation;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.bukkit.Bukkit;
@@ -8,13 +9,15 @@ import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import fr.marcjus.moderation.manager.EventManager;
+import fr.marcjus.moderation.manager.ModeratorManager;
+import fr.marcjus.moderation.manager.PlayerManager;
 
 public class Moderation extends JavaPlugin {
 
 	private ArrayList<Player> modos = new ArrayList<>();
 	private List<String> modosName = new ArrayList<>();
-	private ArrayList<Player> god = new ArrayList<>();
-	private ArrayList<Player> vanish = new ArrayList<>();
+	private HashMap<Player, PlayerManager> playersManager = new HashMap<>();
+	private HashMap<Player, ModeratorManager> modosManager = new HashMap<>();
 
 	@Override
 	public void onEnable() {
@@ -24,7 +27,6 @@ public class Moderation extends JavaPlugin {
 		for (Player player : Bukkit.getOnlinePlayers()){
 			isModo(player);
 		}
-		god.clear();
 	}
 
 	public boolean isModo(Player player) {
@@ -59,37 +61,14 @@ public class Moderation extends JavaPlugin {
 	public List<String> getModosName(){
 		return modosName;
 	}
+	
+	public HashMap<Player, PlayerManager> getPlayersManager() {
+		return playersManager;
+	}
 
-	public ArrayList<Player> getGod() {
-		return god;
-	}
-	
-	public void addGod(Player player){
-		god.add(player);
-	}
-	
-	public void removeGod(Player player){
-		god.remove(player);
-	}
-	
-	public boolean isGod(Player player){
-		return god.contains(player);
-	}
-	
-	public boolean isVanish(Player player){
-		return vanish.contains(player);
-	}
-	
-	public ArrayList<Player> getVanish(){
-		return vanish;
-	}
-	
-	public void addVanish(Player player){
-		vanish.add(player);
-	}
-	
-	public void removeVanish(Player player){
-		vanish.remove(player);
+
+	public HashMap<Player, ModeratorManager> getModosManager() {
+		return modosManager;
 	}
 
 }

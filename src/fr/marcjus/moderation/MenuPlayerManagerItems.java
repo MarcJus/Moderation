@@ -10,7 +10,7 @@ public enum MenuPlayerManagerItems {
 	FREZZE("§9Frezze le joueur", new ItemStack(Material.PACKED_ICE)),
 	GLOWING("§eFaire briller le joueur", new ItemStack(Material.GLOWSTONE_DUST)),
 	INVSEE("§aMontre l'inventaire du joueur", new ItemStack(Material.CHEST)),
-	ENDERSEE("§2Montre l'enderchest du joueur", new ItemStack(Material.ENDER_CHEST)),
+	ENDERSEE("§fMontre l'enderchest du joueur", new ItemStack(Material.ENDER_CHEST)),
 	TP("§7Se téléporter au joueur", new ItemStack(Material.ENDER_PEARL)),
 	GOD("§cRend le joueur invincible", new ItemStack(Material.DIAMOND_CHESTPLATE));
 	

@@ -10,6 +10,7 @@ import org.bukkit.event.entity.EntityDamageEvent;
 
 import fr.marcjus.moderation.Moderation;
 import fr.marcjus.moderation.manager.ModeratorManager;
+import fr.marcjus.moderation.manager.PlayerManager;
 
 public class Damages implements Listener {
 	
@@ -36,9 +37,8 @@ public class Damages implements Listener {
 		Entity ent = e.getEntity();
 		if(ent instanceof Player){
 			Player player = (Player) ent;
-			if(main.isGod(player)){
-				e.setCancelled(true);
-			}
+			PlayerManager pm = main.getPlayersManager().get(player);
+			e.setCancelled(pm.isGod());
 		}
 	}
 	
