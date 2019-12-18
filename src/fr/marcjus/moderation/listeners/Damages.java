@@ -1,4 +1,4 @@
-package fr.marcjus.moderation.command;
+package fr.marcjus.moderation.listeners;
 
 import org.bukkit.craftbukkit.v1_12_R1.entity.CraftEntity;
 import org.bukkit.entity.Entity;
@@ -9,7 +9,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 
-import fr.marcjus.moderation.listeners.Moderation;
+import fr.marcjus.moderation.Moderation;
 
 public class Damages implements Listener {
 	

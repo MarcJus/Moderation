@@ -1,4 +1,4 @@
-package fr.marcjus.moderation.listeners;
+package fr.marcjus.moderation;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -9,7 +9,10 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import fr.marcjus.moderation.command.CommandMod;
-import fr.marcjus.moderation.command.Damages;
+import fr.marcjus.moderation.listeners.Connecting;
+import fr.marcjus.moderation.listeners.Damages;
+import fr.marcjus.moderation.listeners.InventoryListeners;
+import fr.marcjus.moderation.listeners.Move;
 import fr.marcjus.moderation.manager.PlayerManager;
 
 public class Moderation extends JavaPlugin {

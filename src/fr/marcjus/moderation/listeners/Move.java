@@ -5,6 +5,8 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerMoveEvent;
 
+import fr.marcjus.moderation.Moderation;
+
 public class Move implements Listener {
 
 	private Moderation main;
