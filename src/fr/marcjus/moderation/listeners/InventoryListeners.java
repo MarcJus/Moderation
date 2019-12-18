@@ -13,7 +13,6 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
-import fr.marcjus.moderation.Moderation;
 import fr.marcjus.moderation.manager.PlayerManager;
 import fr.marcjus.moderation.menu.CustomMenu;
 

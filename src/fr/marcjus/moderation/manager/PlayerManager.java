@@ -1,7 +1,5 @@
 package fr.marcjus.moderation.manager;
 
-import org.bukkit.entity.Player;
-
 public class PlayerManager {
 	
 	private boolean oneshot = false;

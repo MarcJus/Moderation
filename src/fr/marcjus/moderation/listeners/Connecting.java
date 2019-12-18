@@ -5,7 +5,6 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 
-import fr.marcjus.moderation.Moderation;
 import fr.marcjus.moderation.manager.PlayerManager;
 
 public class Connecting implements Listener {
