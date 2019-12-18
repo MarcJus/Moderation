@@ -2,54 +2,46 @@ package fr.marcjus.moderation.manager;
 
 import org.bukkit.entity.Player;
 
-import fr.marcjus.moderation.Moderation;
-
 public class PlayerManager {
-
-	protected Moderation main;
-	private Player player;
-	protected boolean god = false;
-	protected boolean frezze = false;
-	protected boolean glowing = false;
-
-	public PlayerManager(Moderation main, Player player) {
-		this.main = main;
-		this.player = player;
-	}
 	
-	public void setGlowing(boolean glowing){
-		this.glowing = glowing;
-	}
+	private boolean oneshot = false;
+	private boolean god = false;
+	private boolean frezze = false;
+	private boolean glow = false;
 	
-	public boolean isGlowing(){
-		return this.glowing;
+	public PlayerManager() {
 	}
-	
-	public void setGod(boolean invulnerable) {
-		
-		if (invulnerable) {
-			if (!this.god) {
-				player.sendMessage("§aVous  etes maintenant invulnerable !");
-			}
 
-		} else {
-			player.sendMessage("§cVous etes maintenant sensible aux dégats !");
-		}
-		this.god = invulnerable;
+	public boolean isOneshot() {
+		return oneshot;
+	}
+
+	public void setOneshot(boolean oneshot) {
+		this.oneshot = oneshot;
 	}
 
 	public boolean isGod() {
 		return god;
 	}
 
-	
-	
-	public void setFrezze(boolean frezze){
-		this.frezze = frezze;
+	public void setGod(boolean god) {
+		this.god = god;
 	}
-	
-	public boolean isFrezze(){
+
+	public boolean isFrezze() {
 		return frezze;
 	}
-	
+
+	public void setFrezze(boolean frezze) {
+		this.frezze = frezze;
+	}
+
+	public boolean isGlow() {
+		return glow;
+	}
+
+	public void setGlow(boolean glow) {
+		this.glow = glow;
+	}
+
 }

@@ -8,22 +8,22 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import fr.marcjus.moderation.Moderation;
 import fr.marcjus.moderation.manager.PlayerManager;
 
-public class Connect implements Listener{
+public class Connecting implements Listener {
 	
 	private Moderation main;
 	
-	public Connect(Moderation main){
+	public Connecting(Moderation main) {
 		this.main = main;
 	}
 	
 	@EventHandler
 	public void onJoin(PlayerJoinEvent e){
-		
 		Player player = e.getPlayer();
-		if(!main.getPlayersManager().containsKey(player)){
-			main.getPlayersManager().put(player, new PlayerManager(main, player));
+		main.getPlayers().add(player.getName());
+		if(!main.getManagers().containsValue(player)){
+			PlayerManager plm = new PlayerManager();
+			main.getManagers().put(player, plm);
 		}
-		
 	}
 
 }
