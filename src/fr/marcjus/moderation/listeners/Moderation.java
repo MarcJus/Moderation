@@ -1,4 +1,4 @@
-package fr.marcjus.moderation;
+package fr.marcjus.moderation.listeners;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -9,10 +9,7 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import fr.marcjus.moderation.command.CommandMod;
-import fr.marcjus.moderation.listeners.Connecting;
-import fr.marcjus.moderation.listeners.Damages;
-import fr.marcjus.moderation.listeners.InventoryListeners;
-import fr.marcjus.moderation.listeners.Move;
+import fr.marcjus.moderation.command.Damages;
 import fr.marcjus.moderation.manager.PlayerManager;
 
 public class Moderation extends JavaPlugin {
@@ -29,7 +26,6 @@ public class Moderation extends JavaPlugin {
 		pm.registerEvents(new InventoryListeners(this), this);
 		pm.registerEvents(new Move(this), this);
 		pm.registerEvents(new Damages(this), this);
-		
 	}
 	
 	@Override
