@@ -14,9 +14,11 @@ public class CommandMod implements CommandExecutor {
 		
 		if(sender instanceof Player){
 			Player player = (Player) sender;
-			CustomMenu menu = new CustomMenu("§aJoueurs", 54);
+			CustomMenu menu = new CustomMenu("Joueurs", 54);
 			menu.createPlayersMenu();
 			menu.openMenu(player);
+		}else{
+			sender.sendMessage("§cVous devez etre un joueur pour executer cette commande !");
 		}
 		
 		return false;
