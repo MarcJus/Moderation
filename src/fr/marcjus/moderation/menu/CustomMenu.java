@@ -59,6 +59,7 @@ public class CustomMenu {
 		ItemStack tp = new ItemStack(Material.ENDER_PEARL);
 		ItemMeta tm = tp.getItemMeta();
 		tm.setDisplayName("§fSe teleporter au joueur");
+		tp.setItemMeta(tm);
 
 		ItemStack god = new ItemStack(Material.DIAMOND_CHESTPLATE);
 		ItemMeta godmeta = god.getItemMeta();
