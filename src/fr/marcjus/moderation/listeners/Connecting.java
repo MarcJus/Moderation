@@ -19,8 +19,10 @@ public class Connecting implements Listener {
 	@EventHandler
 	public void onJoin(PlayerJoinEvent e){
 		Player player = e.getPlayer();
-		main.getPlayers().add(player.getName());
-		if(!main.getManagers().containsValue(player)){
+		if(!main.getPlayers().contains(player.getName())){
+			main.getPlayers().add(player.getName());
+		}
+		if(!main.getManagers().containsKey(player)){
 			PlayerManager plm = new PlayerManager();
 			main.getManagers().put(player, plm);
 		}

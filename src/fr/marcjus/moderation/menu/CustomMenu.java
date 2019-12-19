@@ -6,6 +6,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
+import org.bukkit.event.player.PlayerBedEnterEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
@@ -70,8 +71,13 @@ public class CustomMenu {
 		onemeta.addEnchant(Enchantment.DAMAGE_ALL, 5, true);
 		onemeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
 		oneshot.setItemMeta(onemeta);
+		
+		ItemStack kill = new ItemStack(Material.SKULL_ITEM);
+		ItemMeta kmeta = kill.getItemMeta();
+		kmeta.setDisplayName("§4Tue le joueur");
+		kill.setItemMeta(kmeta);
 
-		inv.addItem(frezze, glow, invsee, endersee, tp, god, oneshot);
+		inv.addItem(frezze, glow, invsee, endersee, tp, god, oneshot, kill);
 	}
 
 	public void openMenu(Player player) {
@@ -90,6 +96,9 @@ public class CustomMenu {
 		inv.setItem(37, target.getInventory().getChestplate());
 		inv.setItem(38, target.getInventory().getLeggings());
 		inv.setItem(39, target.getInventory().getBoots());
+		
+		Inventory targetinv = target.getInventory();
+		targetinv = inv;
 		
 	}
 

@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
+import org.bukkit.craftbukkit.v1_12_R1.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -16,10 +17,12 @@ import org.bukkit.potion.PotionEffectType;
 import fr.marcjus.moderation.Moderation;
 import fr.marcjus.moderation.manager.PlayerManager;
 import fr.marcjus.moderation.menu.CustomMenu;
+import net.minecraft.server.v1_12_R1.EntityPlayer;
 
 public class InventoryListeners implements Listener {
 
 	private Moderation main;
+	@SuppressWarnings("unused")
 	private HashMap<Player, PlayerManager> pm = null;
 
 	public InventoryListeners(Moderation main) {
@@ -122,6 +125,11 @@ public class InventoryListeners implements Listener {
 						player.sendMessage("§e"+target.getName()+"§a ne oneshot plus les entiées !");
 						target.sendMessage("§cTu ne one shot plus les entitées !");
 					}
+					break;
+				case SKULL_ITEM:
+					EntityPlayer pl = ((CraftPlayer) target).getHandle();
+					pl.killEntity();
+					player.sendMessage("§e"+target.getName()+"§c a ete tue");
 					break;
 				default:
 					break;
