@@ -76,8 +76,13 @@ public class CustomMenu {
 		ItemMeta kmeta = kill.getItemMeta();
 		kmeta.setDisplayName("§8Tue le joueur");
 		kill.setItemMeta(kmeta);
+		
+		ItemStack speed = new ItemStack(Material.RABBIT_FOOT);
+		ItemMeta smeta = speed.getItemMeta();
+		smeta.setDisplayName("§dDonne un effet de vitesse");
+		speed.setItemMeta(smeta);
 
-		inv.addItem(frezze, glow, invsee, endersee, tp, god, oneshot, kill);
+		inv.addItem(frezze, glow, invsee, endersee, tp, god, oneshot, kill, speed);
 	}
 
 	public void openMenu(Player player) {

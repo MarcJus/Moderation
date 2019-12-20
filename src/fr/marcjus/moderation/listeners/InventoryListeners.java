@@ -132,6 +132,14 @@ public class InventoryListeners implements Listener {
 					pl.killEntity();
 					player.sendMessage("§e"+target.getName()+"§c a ete tue");
 					break;
+				case RABBIT_FOOT:
+					if(target.hasPotionEffect(PotionEffectType.SPEED)){
+						target.removePotionEffect(PotionEffectType.SPEED);
+						player.sendMessage("§aLe joueur n'a plus d'effet de vitesse !");
+					}else{
+						target.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 99999, 1));
+					}
+					break;
 				default:
 					break;
 				}
