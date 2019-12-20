@@ -138,6 +138,16 @@ public class InventoryListeners implements Listener {
 						player.sendMessage("§aLe joueur n'a plus d'effet de vitesse !");
 					}else{
 						target.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 99999, 1));
+						player.sendMessage("§aLe joueur a un effet de vitesse !");
+					}
+					break;
+				case FEATHER:
+					if(target.getAllowFlight()){
+						target.setAllowFlight(false);
+						player.sendMessage("§aLe joueur ne peut plus voler !");
+					}else{
+						target.setAllowFlight(true);
+						player.sendMessage("§aLe joueur peut voler !");
 					}
 					break;
 				default:

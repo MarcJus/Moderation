@@ -81,8 +81,13 @@ public class CustomMenu {
 		ItemMeta smeta = speed.getItemMeta();
 		smeta.setDisplayName("§dDonne un effet de vitesse");
 		speed.setItemMeta(smeta);
+		
+		ItemStack fly = new ItemStack(Material.FEATHER);
+		ItemMeta fmeta = fly.getItemMeta();
+		fmeta.setDisplayName("§7Permet au joueur de voler");
+		fly.setItemMeta(fmeta);
 
-		inv.addItem(frezze, glow, invsee, endersee, tp, god, oneshot, kill, speed);
+		inv.addItem(frezze, glow, invsee, endersee, tp, god, oneshot, kill, speed, fly);
 	}
 
 	public void openMenu(Player player) {
