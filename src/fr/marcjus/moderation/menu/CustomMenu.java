@@ -74,7 +74,7 @@ public class CustomMenu {
 		
 		ItemStack kill = new ItemStack(Material.SKULL_ITEM);
 		ItemMeta kmeta = kill.getItemMeta();
-		kmeta.setDisplayName("§4Tue le joueur");
+		kmeta.setDisplayName("§8Tue le joueur");
 		kill.setItemMeta(kmeta);
 
 		inv.addItem(frezze, glow, invsee, endersee, tp, god, oneshot, kill);

@@ -39,7 +39,7 @@ public class Damages implements Listener {
 				nmsent.killEntity();
 			}
 		}else if(d instanceof Projectile){
-			Projectile p = (Projectile) ent;
+			Projectile p = (Projectile) d;
 			if(p.getShooter() instanceof Player){
 				Player player = (Player) p.getShooter();
 				if(main.getManagers().get(player.getName()).isOneshot()){
