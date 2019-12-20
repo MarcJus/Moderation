@@ -25,10 +25,10 @@ public class Damages implements Listener {
 		Entity d = e.getDamager();
 		if(d instanceof Player){
 			Player player = (Player) d;
-			if(main.getManagers().get(player).isOneshot()){
+			if(main.getManagers().get(player.getName()).isOneshot()){
 				if(ent instanceof Player){
 					Player p = (Player) ent;
-					if(main.getManagers().get(player).isGod()){
+					if(main.getManagers().get(player.getName()).isGod()){
 						e.setCancelled(true);
 					}else{
 						net.minecraft.server.v1_12_R1.Entity nmsent = ((CraftEntity) ent).getHandle();
@@ -42,7 +42,7 @@ public class Damages implements Listener {
 			Projectile p = (Projectile) ent;
 			if(p.getShooter() instanceof Player){
 				Player player = (Player) p.getShooter();
-				if(main.getManagers().get(player).isOneshot()){
+				if(main.getManagers().get(player.getName()).isOneshot()){
 					net.minecraft.server.v1_12_R1.Entity nmsent = ((CraftEntity) ent).getHandle();
 					nmsent.killEntity();
 				}
@@ -55,7 +55,7 @@ public class Damages implements Listener {
 		Entity ent = e.getEntity();
 		if(ent instanceof Player){
 			Player player = (Player) ent;
-			if(main.getManagers().get(player).isGod()){
+			if(main.getManagers().get(player.getName()).isGod()){
 				e.setCancelled(true);
 			}
 		}

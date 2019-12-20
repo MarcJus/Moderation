@@ -17,7 +17,7 @@ import fr.marcjus.moderation.manager.PlayerManager;
 
 public class Moderation extends JavaPlugin {
 	
-	private HashMap<Player, PlayerManager> managers = new HashMap<>();
+	private HashMap<String, PlayerManager> managers = new HashMap<>();
 	private ArrayList<String> players = new ArrayList<>();
 
 	@Override
@@ -34,12 +34,9 @@ public class Moderation extends JavaPlugin {
 	@Override
 	public void onDisable() {
 		System.out.println("Moderation MarcJus : off");
-		for(Player player : Bukkit.getOnlinePlayers()){
-			player.kickPlayer("Reload du serveur");
-		}
 	}
 
-	public HashMap<Player, PlayerManager> getManagers() {
+	public HashMap<String, PlayerManager> getManagers() {
 		return managers;
 	}
 

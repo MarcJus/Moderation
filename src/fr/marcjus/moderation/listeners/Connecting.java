@@ -24,7 +24,7 @@ public class Connecting implements Listener {
 		}
 		if(!main.getManagers().containsKey(player)){
 			PlayerManager plm = new PlayerManager();
-			main.getManagers().put(player, plm);
+			main.getManagers().put(player.getName(), plm);
 		}
 	}
 

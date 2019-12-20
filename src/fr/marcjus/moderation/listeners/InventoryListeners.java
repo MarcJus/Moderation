@@ -23,7 +23,7 @@ public class InventoryListeners implements Listener {
 
 	private Moderation main;
 	@SuppressWarnings("unused")
-	private HashMap<Player, PlayerManager> pm = null;
+	private HashMap<String, PlayerManager> pm = null;
 
 	public InventoryListeners(Moderation main) {
 		this.main = main;
@@ -59,10 +59,11 @@ public class InventoryListeners implements Listener {
 		Player player = (Player) e.getWhoClicked();
 		if (inv != null ) {
 			if (main.getPlayers().contains(inv.getName())) {
-				Player target = Bukkit.getPlayer(inv.getName());
+				String targetName = inv.getName();
+				Player target = Bukkit.getPlayer(targetName);
 				PlayerManager pm = new PlayerManager();
-				if (main.getManagers().get(target) != null) {
-					pm = main.getManagers().get(target);
+				if (main.getManagers().get(targetName) != null) {
+					pm = main.getManagers().get(targetName);
 				}
 				switch (it.getType()) {
 

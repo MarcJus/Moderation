@@ -18,8 +18,8 @@ public class Move implements Listener {
 	@EventHandler
 	public void onMove(PlayerMoveEvent e) {
 		Player player = e.getPlayer();
-		if (main.getManagers().get(player) != null) {
-			if (main.getManagers().get(player).isFrezze()) {
+		if (main.getManagers().get(player.getName()) != null) {
+			if (main.getManagers().get(player.getName()).isFrezze()) {
 				e.setCancelled(true);
 				player.sendMessage("§cVous etes frezze !");
 			}
