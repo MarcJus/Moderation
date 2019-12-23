@@ -86,8 +86,50 @@ public class CustomMenu {
 		ItemMeta fmeta = fly.getItemMeta();
 		fmeta.setDisplayName("§7Permet au joueur de voler");
 		fly.setItemMeta(fmeta);
-
-		inv.addItem(frezze, glow, invsee, endersee, tp, god, oneshot, kill, speed, fly);
+		
+		ItemStack totem = new ItemStack(Material.TOTEM);
+		ItemMeta tmeta = totem.getItemMeta();
+		tmeta.setDisplayName("§9Espionner le joueur");
+		totem.setItemMeta(tmeta);
+		
+		ItemStack feed = new ItemStack(Material.COOKED_CHICKEN);
+		ItemMeta feedmeta = feed.getItemMeta();
+		feedmeta.setDisplayName("§5Nourrit le joueur");
+		feed.setItemMeta(feedmeta);
+		
+		ItemStack health = new ItemStack(Material.GOLDEN_APPLE, 1, (byte)1);
+		ItemMeta hmeta = health.getItemMeta();
+		hmeta.setDisplayName("§eSoigne le joueur");
+		health.setItemMeta(hmeta);
+		
+		ItemStack jail = new ItemStack(Material.BARRIER);
+		ItemMeta jmeta = jail.getItemMeta();
+		jmeta.setDisplayName("§4Envoie de joueur en prison");
+		jail.setItemMeta(jmeta);
+		
+		inv.addItem(frezze, glow, invsee, endersee, tp, god, oneshot, kill, speed, fly, totem, feed, health, jail);
+	}
+	
+	@SuppressWarnings("deprecation")
+	public void createMenuJail(Player target){
+		ItemStack normal = new ItemStack(Material.STAINED_GLASS_PANE, 1, (byte)13);
+		ItemMeta nmeta = normal.getItemMeta();
+		nmeta.setDisplayName("§aCelulle normale");
+		normal.setItemMeta(nmeta);
+		
+		ItemStack cont = new ItemStack(Material.STAINED_GLASS_PANE, 1, (byte)14);
+		ItemMeta cmeta = cont.getItemMeta();
+		cmeta.setDisplayName("§cCelulle de contention");
+		cont.setItemMeta(cmeta);
+		
+		ItemStack player = new ItemStack(Material.SKULL_ITEM, 1, (byte)3);
+		SkullMeta pmeta = (SkullMeta) player.getItemMeta();
+		pmeta.setOwner(target.getName());
+		pmeta.setDisplayName("§eRetour au menu de "+target.getName());
+		player.setItemMeta(pmeta);
+		
+		inv.addItem(normal, cont);
+		inv.setItem(26, player);
 	}
 
 	public void openMenu(Player player) {

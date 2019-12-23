@@ -28,7 +28,7 @@ public class Damages implements Listener {
 			if(main.getManagers().get(player.getName()).isOneshot()){
 				if(ent instanceof Player){
 					Player p = (Player) ent;
-					if(main.getManagers().get(player.getName()).isGod()){
+					if(main.getManagers().get(p.getName()).isGod()){
 						e.setCancelled(true);
 					}else{
 						net.minecraft.server.v1_12_R1.Entity nmsent = ((CraftEntity) ent).getHandle();

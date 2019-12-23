@@ -3,13 +3,13 @@ package fr.marcjus.moderation;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import fr.marcjus.moderation.command.CommandMod;
+import fr.marcjus.moderation.listeners.Jail;
 import fr.marcjus.moderation.listeners.Connecting;
+import fr.marcjus.moderation.listeners.Containment;
 import fr.marcjus.moderation.listeners.Damages;
 import fr.marcjus.moderation.listeners.InventoryListeners;
 import fr.marcjus.moderation.listeners.Move;
@@ -29,6 +29,8 @@ public class Moderation extends JavaPlugin {
 		pm.registerEvents(new InventoryListeners(this), this);
 		pm.registerEvents(new Move(this), this);
 		pm.registerEvents(new Damages(this), this);
+		pm.registerEvents(new Jail(), this);
+		pm.registerEvents(new Containment(), this);
 	}
 	
 	@Override
