@@ -149,10 +149,15 @@ public class CustomMenu {
 		inv.setItem(37, target.getInventory().getChestplate());
 		inv.setItem(38, target.getInventory().getLeggings());
 		inv.setItem(39, target.getInventory().getBoots());
+		inv.setItem(40, target.getInventory().getItem(40));
 		
 		Inventory targetinv = target.getInventory();
 		targetinv = inv;
 		
+	}
+	
+	public Inventory getInv(){
+		return inv;
 	}
 
 }
