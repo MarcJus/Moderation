@@ -27,7 +27,7 @@ public class CustomMenu {
 			ItemStack skull = new ItemStack(Material.SKULL_ITEM, 1, (byte)3);
 			SkullMeta meta = (SkullMeta) skull.getItemMeta();
 			meta.setOwner(player.getName());
-			meta.setDisplayName(player.getName());
+			meta.setDisplayName("§e"+player.getName());
 			meta.setLore(Arrays.asList("§3Gerer le joueur"));
 			skull.setItemMeta(meta);
 			inv.addItem(skull);

@@ -44,7 +44,7 @@ public class InventoryListeners implements Listener {
 				if (it.getType().equals(Material.SKULL_ITEM) && it.hasItemMeta()) {
 					e.setCancelled(true);
 					player.closeInventory();
-					Player target = Bukkit.getPlayer(it.getItemMeta().getDisplayName());
+					Player target = Bukkit.getPlayer(it.getItemMeta().getDisplayName().replaceAll("§e", ""));
 					CustomMenu menu = new CustomMenu(target.getName(), 27);
 					menu.createPlayerManagerMenu();
 					menu.openMenu(player);
