@@ -6,6 +6,7 @@ public class PlayerManager {
 	private boolean god = false;
 	private boolean frezze = false;
 	private boolean glow = false;
+	private boolean speed = false;
 	
 	public PlayerManager() {
 	}
@@ -40,6 +41,14 @@ public class PlayerManager {
 
 	public void setGlow(boolean glow) {
 		this.glow = glow;
+	}
+
+	public boolean isSpeed() {
+		return speed;
+	}
+
+	public void setSpeed(boolean speed) {
+		this.speed = speed;
 	}
 
 }

@@ -12,7 +12,6 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
@@ -133,14 +132,20 @@ public class InventoryListeners implements Listener {
 				case SKULL_ITEM:
 					EntityPlayer pl = ((CraftPlayer) target).getHandle();
 					pl.killEntity();
+					target.sendMessage("§cEt bim et bam et boum en plein dans l'sanglier !");
+					target.sendMessage("§cAllez salut !");
 					player.sendMessage("§e" + target.getName() + "§c a ete tue");
 					break;
 				case RABBIT_FOOT:
-					if (target.hasPotionEffect(PotionEffectType.SPEED)) {
+					if (pm.isSpeed()) {
+						pm.setSpeed(false);
 						target.removePotionEffect(PotionEffectType.SPEED);
 						player.sendMessage("§aLe joueur n'a plus d'effet de vitesse !");
 					} else {
-						target.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 99999, 1));
+						pm.setSpeed(true);
+						while(pm.isSpeed()){
+							target.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 9999, 2));
+						}
 						player.sendMessage("§aLe joueur a un effet de vitesse !");
 					}
 					break;
